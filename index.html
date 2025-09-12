@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YuYaY Entertainment | Facebook</title>
+    <title>YuYaY | Facebook</title>
     <style>
         * {
             margin: 0;
@@ -155,6 +155,32 @@
 
         .left-column {
             width: 100%;
+        }
+
+        /* Navigation Tabs */
+        .page-tabs {
+            border-top: 1px solid #dadde1;
+            display: flex;
+            margin-top: 16px;
+        }
+
+        .tab {
+            padding: 16px 24px;
+            color: #65676b;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background-color: #f2f3f5;
+        }
+
+        .tab.active {
+            color: #1877f2;
+            border-bottom-color: #1877f2;
         }
         
 
@@ -387,6 +413,15 @@
                 margin-top: 16px;
             }
 
+            .page-tabs {
+                overflow-x: auto;
+            }
+
+            .tab {
+                white-space: nowrap;
+                padding: 16px;
+            }
+
 
             .search-box {
                 width: 180px;
@@ -425,7 +460,7 @@
                 <div class="profile-info">
                     <div class="profile-picture">YY</div>
                     <div class="profile-details">
-                        <h1 class="page-title">YuYaY Entertainment</h1>
+                        <h1 class="page-title">YuYaY</h1>
                         <p class="page-category">Media/Entertainment Company</p>
                         <div class="page-stats">
                             ⭐ 4.8 • 2,547 people like this • 2,891 people follow this
@@ -443,6 +478,15 @@
             </div>
         </div>
 
+        <!-- Navigation Tabs -->
+        <div class="page-tabs">
+            <div class="tab active" data-tab="about">About</div>
+            <div class="tab" data-tab="photos">Photos</div>
+            <div class="tab" data-tab="videos">Videos</div>
+            <div class="tab" data-tab="events">Events</div>
+            <div class="tab" data-tab="community">Community</div>
+            <div class="tab" data-tab="more">More</div>
+        </div>
 
         <!-- Content Area -->
         <div class="content-area">
@@ -547,6 +591,35 @@
     </div>
 
     <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const tabName = this.getAttribute('data-tab');
+                
+                // Hide all sections
+                document.getElementById('about-section').style.display = 'none';
+                document.getElementById('photos-section').style.display = 'none';
+                document.getElementById('videos-section').style.display = 'none';
+                
+                // Show relevant section
+                if (tabName === 'about') {
+                    document.getElementById('about-section').style.display = 'block';
+                } else if (tabName === 'photos') {
+                    document.getElementById('photos-section').style.display = 'block';
+                } else if (tabName === 'videos') {
+                    document.getElementById('videos-section').style.display = 'block';
+                } else if (tabName === 'community') {
+                    // Show community card (it's always visible but we can add specific community content)
+                    document.getElementById('about-section').style.display = 'block';
+                }
+            });
+        });
+
         // Photo and video click handlers
         document.querySelectorAll('.photo-item, .video-item').forEach(item => {
             item.addEventListener('click', function() {
@@ -561,9 +634,9 @@
                 const btnText = this.textContent.trim();
                 
                 if (btnText.includes('Like')) {
-                    alert('Thanks for liking YuYaY Entertainment! 👍');
+                    alert('Thanks for liking YuYaY! 👍');
                 } else if (btnText.includes('Follow')) {
-                    alert('You are now following YuYaY Entertainment! 🎉');
+                    alert('You are now following YuYaY! 🎉');
                 } else if (btnText.includes('Message')) {
                     alert('Opening messenger...');
                 } else if (btnText.includes('Email')) {
