@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
             border-radius: 8px;
             margin-top: 20px;
             overflow: hidden;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .cover-photo {
@@ -52,7 +53,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
             height: 100px;
         }
 
@@ -80,7 +81,7 @@
             color: white;
             font-size: 3rem;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .profile-details {
@@ -182,14 +183,14 @@
             color: #1877f2;
             border-bottom-color: #1877f2;
         }
-        
+
 
         /* Facebook Card Style */
         .fb-card {
             background: white;
             border-radius: 8px;
             margin-bottom: 16px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
@@ -238,7 +239,7 @@
             background: white;
             border-radius: 8px;
             margin-bottom: 16px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .post-header {
@@ -383,7 +384,7 @@
             position: absolute;
             bottom: 8px;
             right: 8px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
@@ -435,9 +436,17 @@
 
         /* Loading Animation */
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .loading {
@@ -445,6 +454,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Main Container -->
@@ -455,7 +465,7 @@
                 🎬
                 <div class="cover-overlay"></div>
             </div>
-            
+
             <div class="profile-section">
                 <div class="profile-info">
                     <div class="profile-picture">YY</div>
@@ -498,7 +508,8 @@
                     <div class="card-content">
                         <div class="about-item">
                             <div class="about-icon">📝</div>
-                            <div class="about-text">Independent creative studio producing films, short videos, and social media content that inspires millions worldwide.</div>
+                            <div class="about-text">Independent creative studio producing films, short videos, and
+                                social media content that inspires millions worldwide.</div>
                         </div>
                         <div class="about-item">
                             <div class="about-icon">🌐</div>
@@ -549,6 +560,10 @@
                         </div>
                         <div class="video-item">
                             ▶️
+                            <div class="video-duration">15:23</div>
+                        </div>
+                        <div class="video-item">
+                            ▶️
                             <div class="video-duration">3:45</div>
                         </div>
                         <div class="video-item">
@@ -569,19 +584,19 @@
     <script>
         // Tab switching functionality
         document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function () {
                 // Remove active class from all tabs
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 // Add active class to clicked tab
                 this.classList.add('active');
-                
+
                 const tabName = this.getAttribute('data-tab');
-                
+
                 // Hide all sections
                 document.getElementById('about-section').style.display = 'none';
                 document.getElementById('photos-section').style.display = 'none';
                 document.getElementById('videos-section').style.display = 'none';
-                
+
                 // Show relevant section
                 if (tabName === 'about') {
                     document.getElementById('about-section').style.display = 'block';
@@ -598,17 +613,17 @@
 
         // Photo and video click handlers
         document.querySelectorAll('.photo-item, .video-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 alert('Photo/Video viewer would open here!');
             });
         });
 
         // Action buttons
         document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 const btnText = this.textContent.trim();
-                
+
                 if (btnText.includes('Like')) {
                     alert('Thanks for liking YuYaY! 👍');
                 } else if (btnText.includes('Follow')) {
@@ -624,4 +639,5 @@
         });
     </script>
 </body>
+
 </html>
