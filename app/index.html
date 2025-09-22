@@ -463,6 +463,156 @@
             font-weight: 500;
         }
 
+        /* Section Styles */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .search-section {
+            padding: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #dadde1;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .search-results {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .create-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .create-option {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .create-option:hover {
+            transform: translateY(-2px);
+        }
+
+        .create-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .activity-section {
+            padding: 20px;
+        }
+
+        .activity-item {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .activity-text {
+            flex: 1;
+        }
+
+        .activity-time {
+            color: #65676b;
+            font-size: 12px;
+        }
+
+        .profile-section {
+            padding: 20px;
+        }
+
+        .profile-header {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #1877f2, #42a5f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 32px;
+            margin: 0 auto 16px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .profile-bio {
+            color: #65676b;
+            margin-bottom: 16px;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #dadde1;
+            padding-top: 16px;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .profile-stat-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1877f2;
+        }
+
+        .profile-stat-label {
+            font-size: 12px;
+            color: #65676b;
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 display: none;
@@ -474,9 +624,6 @@
             }
             .header-center {
                 display: none;
-            }
-            .search-box {
-                width: 180px;
             }
             .main-content {
                 margin-bottom: 60px;
@@ -495,7 +642,6 @@
     <div class="header">
         <div class="header-left">
             <div class="logo">YuYay</div>
-            <input type="text" class="search-box" placeholder="Search YuYay">
         </div>
         <div class="header-center">
             <div class="nav-item active">🏠</div>
@@ -560,8 +706,9 @@
 
         <!-- Feed -->
         <div class="feed">
-
-            <!-- Posts -->
+            <!-- Home Section -->
+            <div id="home-section" class="section active">
+                <!-- Posts -->
             <div class="post">
                 <div class="post-header">
                     <div class="post-avatar">A</div>
@@ -683,28 +830,178 @@
                     <span>Emma Wilson</span>
                 </div>
             </div>
+            </div>
+
+            <!-- Search Section -->
+            <div id="search-section" class="section search-section">
+                <input type="text" class="search-input" placeholder="Search for people, posts, and more...">
+
+                <div class="search-results">
+                    <div style="display: flex; align-items: center;">
+                        <div class="post-avatar" style="background: linear-gradient(45deg, #74b9ff, #0984e3);">S</div>
+                        <div style="margin-left: 12px;">
+                            <div style="font-weight: 600;">Sarah Jones</div>
+                            <div style="color: #65676b; font-size: 14px;">Software Developer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-results">
+                    <div style="display: flex; align-items: center;">
+                        <div class="post-avatar" style="background: linear-gradient(45deg, #fd79a8, #e84393);">M</div>
+                        <div style="margin-left: 12px;">
+                            <div style="font-weight: 600;">Mike Wilson</div>
+                            <div style="color: #65676b; font-size: 14px;">Product Manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-results">
+                    <div style="display: flex; align-items: center;">
+                        <div class="post-avatar" style="background: linear-gradient(45deg, #00b894, #00cec9);">L</div>
+                        <div style="margin-left: 12px;">
+                            <div style="font-weight: 600;">Lisa Brown</div>
+                            <div style="color: #65676b; font-size: 14px;">Designer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Section -->
+            <div id="create-section" class="section create-section">
+                <div class="create-option">
+                    <div class="create-icon">📸</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Photo Post</div>
+                    <div style="color: #65676b;">Share a photo with your friends</div>
+                </div>
+
+                <div class="create-option">
+                    <div class="create-icon">📹</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Video Post</div>
+                    <div style="color: #65676b;">Record and share a video</div>
+                </div>
+
+                <div class="create-option">
+                    <div class="create-icon">✍️</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Text Post</div>
+                    <div style="color: #65676b;">Share your thoughts</div>
+                </div>
+
+                <div class="create-option">
+                    <div class="create-icon">📍</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Check In</div>
+                    <div style="color: #65676b;">Share your location</div>
+                </div>
+            </div>
+
+            <!-- Activity Section -->
+            <div id="activity-section" class="section activity-section">
+                <div class="activity-item">
+                    <div class="activity-avatar">A</div>
+                    <div class="activity-text">
+                        <div><strong>Alex Smith</strong> liked your post</div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-avatar" style="background: linear-gradient(45deg, #74b9ff, #0984e3);">S</div>
+                    <div class="activity-text">
+                        <div><strong>Sarah Jones</strong> commented on your photo</div>
+                        <div class="activity-time">4 hours ago</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-avatar" style="background: linear-gradient(45deg, #fd79a8, #e84393);">M</div>
+                    <div class="activity-text">
+                        <div><strong>Mike Wilson</strong> started following you</div>
+                        <div class="activity-time">1 day ago</div>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-avatar" style="background: linear-gradient(45deg, #00b894, #00cec9);">L</div>
+                    <div class="activity-text">
+                        <div><strong>Lisa Brown</strong> shared your post</div>
+                        <div class="activity-time">2 days ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile-section" class="section profile-section">
+                <div class="profile-header">
+                    <div class="profile-avatar-large">Y</div>
+                    <div class="profile-name">Your Name</div>
+                    <div class="profile-bio">Welcome to YuYay! 🚀 Connecting people around the world.</div>
+
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="profile-stat-number">156</div>
+                            <div class="profile-stat-label">Posts</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="profile-stat-number">2.4K</div>
+                            <div class="profile-stat-label">Followers</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="profile-stat-number">1.8K</div>
+                            <div class="profile-stat-label">Following</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background: linear-gradient(45deg, #1877f2, #42a5f5);">Y</div>
+                        <div class="post-info">
+                            <div class="post-author">Your Name</div>
+                            <div class="post-time">1 week ago</div>
+                        </div>
+                        <button class="icon-button">⋯</button>
+                    </div>
+                    <div class="post-content">
+                        Excited to be part of the YuYay community! Looking forward to connecting with amazing people and sharing great content. 🎉
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action">
+                            <span class="post-action-icon" style="color: #1877f2;">👍</span>
+                            <span>Like</span>
+                        </div>
+                        <div class="post-action">
+                            <span class="post-action-icon" style="color: #65676b;">💬</span>
+                            <span>Comment</span>
+                        </div>
+                        <div class="post-action">
+                            <span class="post-action-icon" style="color: #65676b;">↗️</span>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
-        <div class="bottom-nav-item active">
+        <div class="bottom-nav-item active" data-section="home">
             <div class="bottom-nav-icon">🏠</div>
             <div class="bottom-nav-label">Home</div>
         </div>
-        <div class="bottom-nav-item">
+        <div class="bottom-nav-item" data-section="search">
             <div class="bottom-nav-icon">🔍</div>
             <div class="bottom-nav-label">Search</div>
         </div>
-        <div class="bottom-nav-item">
+        <div class="bottom-nav-item" data-section="create">
             <div class="bottom-nav-icon">➕</div>
             <div class="bottom-nav-label">Create</div>
         </div>
-        <div class="bottom-nav-item">
+        <div class="bottom-nav-item" data-section="activity">
             <div class="bottom-nav-icon">❤️</div>
             <div class="bottom-nav-label">Activity</div>
         </div>
-        <div class="bottom-nav-item">
+        <div class="bottom-nav-item" data-section="profile">
             <div class="bottom-nav-icon">👤</div>
             <div class="bottom-nav-label">Profile</div>
         </div>
@@ -731,12 +1028,24 @@
         // Add bottom navigation functionality
         document.querySelectorAll('.bottom-nav-item').forEach(item => {
             item.addEventListener('click', function() {
-                // Remove active class from all items
+                // Remove active class from all navigation items
                 document.querySelectorAll('.bottom-nav-item').forEach(nav => {
                     nav.classList.remove('active');
                 });
                 // Add active class to clicked item
                 this.classList.add('active');
+
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the selected section
+                const sectionName = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionName + '-section');
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
             });
         });
     </script>
