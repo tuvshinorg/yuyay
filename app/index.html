@@ -418,6 +418,51 @@
             }
         }
 
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #dadde1;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: color 0.2s;
+            flex: 1;
+            text-decoration: none;
+            color: #65676b;
+        }
+
+        .bottom-nav-item.active {
+            color: #1877f2;
+        }
+
+        .bottom-nav-item:hover {
+            color: #1877f2;
+        }
+
+        .bottom-nav-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav-label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 display: none;
@@ -425,13 +470,22 @@
             .feed {
                 margin-left: 0;
                 width: 100%;
-                padding: 20px 8px;
+                padding: 20px 8px 80px 8px;
             }
             .header-center {
                 display: none;
             }
             .search-box {
                 width: 180px;
+            }
+            .main-content {
+                margin-bottom: 60px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .bottom-nav {
+                display: none;
             }
         }
     </style>
@@ -506,51 +560,6 @@
 
         <!-- Feed -->
         <div class="feed">
-            <!-- Stories -->
-            <div class="story-reel">
-                <div class="story">
-                    <div class="story-avatar">📷</div>
-                    <div class="story-text">Create Story</div>
-                </div>
-                <div class="story" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);">
-                    <div class="story-avatar">A</div>
-                    <div class="story-text">Alex Smith</div>
-                </div>
-                <div class="story" style="background: linear-gradient(45deg, #74b9ff, #0984e3);">
-                    <div class="story-avatar">S</div>
-                    <div class="story-text">Sarah Jones</div>
-                </div>
-                <div class="story" style="background: linear-gradient(45deg, #fd79a8, #e84393);">
-                    <div class="story-avatar">M</div>
-                    <div class="story-text">Mike Wilson</div>
-                </div>
-                <div class="story" style="background: linear-gradient(45deg, #00b894, #00cec9);">
-                    <div class="story-avatar">L</div>
-                    <div class="story-text">Lisa Brown</div>
-                </div>
-            </div>
-
-            <!-- Create Post -->
-            <div class="create-post">
-                <div class="create-post-top">
-                    <div class="profile-pic">Y</div>
-                    <input type="text" class="post-input" placeholder="What's on your mind?">
-                </div>
-                <div class="create-post-bottom">
-                    <div class="post-option">
-                        <span class="post-option-icon" style="color: #f3425f;">📹</span>
-                        <span>Live Video</span>
-                    </div>
-                    <div class="post-option">
-                        <span class="post-option-icon" style="color: #45bd62;">📸</span>
-                        <span>Photo/Video</span>
-                    </div>
-                    <div class="post-option">
-                        <span class="post-option-icon" style="color: #f7b928;">😊</span>
-                        <span>Feeling/Activity</span>
-                    </div>
-                </div>
-            </div>
 
             <!-- Posts -->
             <div class="post">
@@ -677,6 +686,30 @@
         </div>
     </div>
 
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="bottom-nav-item active">
+            <div class="bottom-nav-icon">🏠</div>
+            <div class="bottom-nav-label">Home</div>
+        </div>
+        <div class="bottom-nav-item">
+            <div class="bottom-nav-icon">🔍</div>
+            <div class="bottom-nav-label">Search</div>
+        </div>
+        <div class="bottom-nav-item">
+            <div class="bottom-nav-icon">➕</div>
+            <div class="bottom-nav-label">Create</div>
+        </div>
+        <div class="bottom-nav-item">
+            <div class="bottom-nav-icon">❤️</div>
+            <div class="bottom-nav-label">Activity</div>
+        </div>
+        <div class="bottom-nav-item">
+            <div class="bottom-nav-icon">👤</div>
+            <div class="bottom-nav-label">Profile</div>
+        </div>
+    </div>
+
     <script>
         // Add interactive functionality
         document.querySelectorAll('.post-action').forEach(action => {
@@ -695,23 +728,16 @@
             });
         });
 
-        // Add story click animation
-        document.querySelectorAll('.story').forEach(story => {
-            story.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
+        // Add bottom navigation functionality
+        document.querySelectorAll('.bottom-nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.bottom-nav-item').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+                // Add active class to clicked item
+                this.classList.add('active');
             });
-        });
-
-        // Add post input focus effect
-        document.querySelector('.post-input').addEventListener('focus', function() {
-            this.parentElement.parentElement.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
-        });
-
-        document.querySelector('.post-input').addEventListener('blur', function() {
-            this.parentElement.parentElement.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.1)';
         });
     </script>
 </body>
